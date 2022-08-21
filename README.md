@@ -38,16 +38,16 @@ To determine the Return, it was necessary to first capture the starting price fo
    
 After running the stock analysis for both 2018 and 2017, it was visually apparent that 2017 had been a better year for the selected stocks than 2018 had.  In 2017, the majority of stocks had a positive return, as clearly evidenced by the conditional formatting showing those returns highlighted in green:
 
-**INSERT IMAGE**
+![2017 Stock Performance](/Resources/Stock_Performance_2017.png)
 
 While in 2018, the majority of stocks had a negative return, as indicated by all but 2 stocks being highlighted in red:
 
-**INSERT IMAGE**
+![2018 Stock Performance](/Resources/Stock_Performance_2018.png)
 
 Total Daily Volumes were similar across both years, even though the returns were quite different.
 
 ### Code Performance
-The code snippets above were taken from the original code in the Subroute 'AllStocksAnalysis' that was developed to answer Steve's initial and follow up questions. In this code, we utilized a nested loop.  In the first, outer loop, we looped through each of the 12 ticker symbols:
+The code snippets above were taken from the original code in the Subroutine 'AllStocksAnalysis' that was developed to answer Steve's initial and follow up questions. In this code, we utilized a nested loop.  In the first, outer loop, we looped through each of the 12 ticker symbols:
 ```
 'Loop through each ticker
 For i = 0 To 11
@@ -61,11 +61,11 @@ By designing the code this way, for each stock we want to analyze we have to aga
 
 When executing this code for 2017, after a noticable wait, results were displayed along with the code performance:
 
-**INSERT IMAGE**
+![2017 Original code Performance](/Resources/Original_VBA_2017.png)
 
 When executing for 2018, after a similar noticeable wait, results were updated along with the 2018 code performance:
 
-**INSERT IMAGE**
+![2018 Original code Performance](/Resources/Original_VBA_2018.png)
 
 In the refactored code, we have eliminated the nested loop and have instead utilized new arrays to store the 12 total daily volumes, starting prices and ending prices as follows:
 ```
@@ -98,7 +98,7 @@ The potential advantages, including the following, are numerous.
 * Improved supportability
 * Improved security
 
-Given all of the potential advantages, it seems like one should refactor code any time that one of the above outcomes seems feasible to achieve.  However, there are also disadvantages to refactoring code, including most notably the potential to introduce new bugs. If the code in question is part of a larger code package, then the benefits of refactoring the code may not be worth the potential harm of introducing a bug that could have downstream unintended consequences.
+Given all of the potential advantages, it seems like one should refactor code any time that one of the above outcomes seems feasible to achieve.  However, there are also disadvantages to refactoring code, including most notably the potential to introduce new bugs. If the code in question is part of a larger code package, then the benefits of refactoring the code may not be worth the potential harm of or the cost of regression testing to avoid introducing a bug that could have downstream unintended consequences.
 
 ### Advantages and Disadvantages of the Refactored VBA script
-In this case, the original VBA script was already showing performance issues, and there were no other downstream impacts of refactoring the code, outside of the time to develop it and to address any bugs. As mentioned in the introduction, the original code was developed in an ad hoc manner - first written to answer one question, then modified to answer a similar question, then modified again. By standing back to reconsider 'what is the code doing' and 'how can that be done more efficiently' we can change our mindset and approach to providing a solution, and can, in fact, find one that is much better than the original.  By writing the new solution in a new module, I was able to keep the original code for reference.  This proved helpful as my first attempt at refactoring did contain an error that I needed to debug. In fairly short order, I had the new code working and was able to see a 99.8% improvement in the time to complete the analysis!
+In this case, the original VBA script was already showing performance issues, and there were no other downstream impacts of refactoring the code, outside of the time to develop it and to address any bugs. As mentioned in the introduction, the original code was developed in an ad hoc manner - first written to answer one question, then modified to answer a similar question, then modified again. By standing back to reconsider 'what is the code doing' and 'how can that be done more efficiently' we can change our mindset and approach to providing a solution, and can, in fact, find one that is much better than the original.  By writing the new solution in a new module, I was able to keep the original code for reference.  This proved helpful as my first attempt at refactoring did contain an error that I needed to debug. In fairly short order, I had the new code working and was able to see a 99.8% improvement in the time to complete the analysis! This is a case where refactoring's advantages well exceed its disadvantages.
