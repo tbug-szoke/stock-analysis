@@ -81,10 +81,12 @@ If Cells(i, 1).Value <> Cells(i + 1, 1).Value Then
 ```
 
 After refactoring, the code runs much faster.  For 2017:
-/stock-analysis/resources/VBA_Challenge_2017.png
+
+![Refactored Code Performance for 2017](/Resources/VBA_Challenge_2017.png)
 
 Similar performance was achieved for 2018:
-/stock-analysis/resources/VBA_Challenge_2018.png
+
+![Refactored Code Performance for 2018](/Resources/VBA_Challenge_2018.png)
 
 ## Summary
 
